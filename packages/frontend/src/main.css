@@ -1,0 +1,140 @@
+@import 'tailwindcss';
+
+@layer base {
+    :root {
+        font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        font-weight: 400;
+
+        color-scheme: light dark;
+        color: rgba(255, 255, 255, 0.87);
+        background-color: #242424;
+
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@theme {
+    /* background image */
+    --color-fallback: url('/img/fallback-bg.jpg');
+
+    /* colors */
+    --color-cornflowernavy: #285ab6;
+    --color-stroopwafel: #77260e;
+    --color-stroopwafel-ribs: #52260e;
+
+    /* box-shadow */
+    --shadow-nav: 0 0 10px rgb(0 0 0 / 50%);
+
+    /* drop-shadow */
+    --drop-shadow-nav: 1px 1px 10px #000000;
+}
+
+@layer base {
+    ul,
+    ol {
+        margin-left: 10px;
+        list-style: revert;
+    }
+
+    li {
+        margin-left: 10px;
+    }
+
+    li > ul > li {
+        list-style-type: disclosure-closed;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+}
+
+@keyframes spinpulse {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+        transform: rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+@utility animate-pulse-spin {
+    animation: spinpulse 1s linear infinite;
+}
+
+@utility find-me {
+    z-index: 12345;
+    border: solid 1px #0f0;
+}
+
+@utility pull-left {
+    justify-self: start;
+}
+
+@utility pull-right {
+    justify-self: end;
+}
+
+@utility app-widget {
+    & > * {
+        opacity: 25%;
+    }
+
+    &:hover {
+        & > * {
+            opacity: 100%;
+        }
+    }
+}
+
+@layer components {
+    .spacious {
+        @apply py-3;
+    }
+
+    .btn-light {
+        @apply border-gray-500 bg-white text-black;
+    }
+
+    .btn {
+        @apply rounded-md px-2;
+    }
+
+    .btn-success {
+        @apply bg-green-600;
+    }
+
+    .btn-success-off {
+        @apply bg-green-800;
+    }
+
+    .btn-primary {
+        @apply bg-blue-500;
+    }
+
+    .btn-primary-off {
+        @apply bg-blue-800;
+    }
+
+    .btn-danger {
+        @apply bg-red-700;
+    }
+
+    .btn-danger-focus {
+        @apply bg-red-950;
+    }
+}

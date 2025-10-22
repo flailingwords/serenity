@@ -1,0 +1,92 @@
+{
+    "devDependencies": {
+        "@tyisi/config-eslint": "5.0.0",
+        "@tyisi/config-prettier": "2.0.0",
+        "eslint": "9.38.0",
+        "eslint-plugin-jest": "29.0.1",
+        "eslint-plugin-storybook": "9.1.13",
+        "globals": "^16.4.0",
+        "husky": "9.1.7",
+        "just-install": "2.0.2",
+        "prettier": "3.6.2",
+        "prettier-plugin-sh": "^0.18.0",
+        "prettier-plugin-tailwindcss": "^0.7.1",
+        "rust-just": "1.43.0",
+        "stylelint": "16.25.0",
+        "typescript": "~5.9.3",
+        "wireit": "0.14.12"
+    },
+    "name": "serenity",
+    "license": "GPLv3",
+    "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
+    "private": true,
+    "resolutions": {
+        "string-width": "4.2.2",
+        "strip-ansi": "6.0.1",
+        "wrap-ansi": "7.0.0"
+    },
+    "scripts": {
+        "build": "wireit",
+        "build:storybook": "wireit",
+        "commit": "npx git-cz@latest",
+        "create:component": "generate-react c",
+        "create:widget": "generate-react c --type=widget",
+        "dev": "wireit",
+        "full-dev": "wireit",
+        "hook:pre-push": "wireit",
+        "lint": "wireit",
+        "preinstall": "npx only-allow pnpm",
+        "prepare": "husky",
+        "push": "wireit",
+        "release": "wireit",
+        "start": "wireit",
+        "storybook": "wireit",
+        "type-check": "wireit"
+    },
+    "type": "module",
+    "version": "1.0.0rc1",
+    "wireit": {
+        "build": {
+            "dependencies": [
+                "./packages/backend:build",
+                "./packages/frontend:build",
+                "./packages/shared:build"
+            ]
+        },
+        "lint": {
+            "command": "just lint"
+        },
+        "push": {
+            "command": "just push",
+            "dependencies": [
+                "build"
+            ]
+        },
+        "release": {
+            "dependencies": [
+                "release:version",
+                "release:push"
+            ]
+        },
+        "release:push": {
+            "command": "just release push",
+            "dependencies": [
+                "release:version"
+            ]
+        },
+        "release:version": {
+            "command": "just release version"
+        },
+        "start": {
+            "command": "just start",
+            "service": true
+        },
+        "storybook": {
+            "command": "just storybook",
+            "service": true
+        },
+        "type-check": {
+            "command": "just type-check"
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "dependencies": {
+        "@hono/node-server": "1.19.5",
+        "@hono/zod-validator": "0.7.4",
+        "serenity-shared": "workspace:*",
+        "@types/debug": "4.1.12",
+        "debug": "4.4.3",
+        "dotenv-flow": "^4.1.0",
+        "hono": "4.10.1",
+        "unsplash-js": "7.0.20",
+        "wireit": "0.14.12",
+        "zod": "4.1.12"
+    },
+    "devDependencies": {
+        "@tyisi/config-eslint": "5.0.0",
+        "@tyisi/config-prettier": "2.0.0",
+        "@types/node": "^22.18.12",
+        "eslint": "9.38.0",
+        "eslint-plugin-jest": "29.0.1",
+        "just-install": "2.0.2",
+        "prettier": "3.6.2",
+        "prettier-plugin-sh": "^0.18.0",
+        "prettier-plugin-tailwindcss": "^0.7.1",
+        "rust-just": "1.43.0",
+        "tsup": "^8.5.0",
+        "tsx": "^4.20.6",
+        "typescript": "~5.9.3"
+    },
+    "files": [
+        "dist/"
+    ],
+    "name": "serenity-backend",
+    "private": true,
+    "scripts": {
+        "build": "wireit",
+        "dev": "wireit",
+        "start": "node dist/index.cjs",
+        "type-check": "wireit"
+    },
+    "type": "module",
+    "wireit": {
+        "build": {
+            "dependencies": [
+                "type-check"
+            ],
+            "command": "tsup --clean -d ./dist/ ./src/index.ts "
+        },
+        "dev": {
+            "command": "tsx watch src/index.ts",
+            "service": true
+        },
+        "type-check": {
+            "command": "tsc"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.env.development.local
+.env.local
+certificates
+dist
+node_modules
+.wireit
+public/config.json

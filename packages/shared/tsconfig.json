@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "useDefineForClassFields": true,
+        "module": "esnext",
+        "lib": ["es2022", "DOM", "DOM.Iterable"],
+        "types": ["node"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "verbatimModuleSyntax": true,
+        "moduleDetection": "force",
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+
+        /* paths */
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+
+        "noEmit": true
+    },
+    "include": ["./src/**/*.ts", "fafo*.ts"]
+}

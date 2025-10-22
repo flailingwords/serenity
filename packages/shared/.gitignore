@@ -1,0 +1,16 @@
+*
+!.gitignore
+
+!src/
+!src/**/
+!src/**/*
+
+!.dockerignore
+
+!eslint.config.mjs
+!prettier.config.mjs
+
+!package.json
+!README.md
+!tsconfig.json
+!vite.config.ts

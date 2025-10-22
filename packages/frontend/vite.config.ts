@@ -1,0 +1,15 @@
+// vite.config.ts
+import tailwindcss from '@tailwindcss/vite'
+import viteReact from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+export default defineConfig({
+    server: {
+        port: 3000,
+        proxy: {
+            '/api': 'http://localhost:8787'
+        }
+    },
+    plugins: [tailwindcss(), tsconfigPaths(), viteReact()]
+})
