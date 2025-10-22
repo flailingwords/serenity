@@ -20,7 +20,7 @@ export const SideMenu: FC<SideMenuProps> = () => {
     return (
         <Conditional condition={show}>
             <div className={clsx('relative z-10', !show && 'hidden')} aria-labelledby='slide-over-title'>
-                <div className='bg-opacity-75 fixed inset-0 bg-gray-500 transition-opacity' aria-hidden='true'></div>
+                <div className='bg-opacity-75 fixed inset-0 bg-gray-500/25 transition-opacity' aria-hidden='true'></div>
 
                 <div className='fixed inset-0 overflow-hidden'>
                     <div className='absolute inset-0 overflow-hidden'>
