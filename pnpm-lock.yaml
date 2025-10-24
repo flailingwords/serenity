@@ -64,10 +64,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: 1.19.5
-        version: 1.19.5(hono@4.10.2)
+        version: 1.19.5(hono@4.10.3)
       '@hono/zod-validator':
         specifier: 0.7.4
-        version: 0.7.4(hono@4.10.2)(zod@4.1.12)
+        version: 0.7.4(hono@4.10.3)(zod@4.1.12)
       '@types/debug':
         specifier: 4.1.12
         version: 4.1.12
@@ -78,8 +78,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       hono:
-        specifier: 4.10.2
-        version: 4.10.2
+        specifier: 4.10.3
+        version: 4.10.3
       serenity-shared:
         specifier: workspace:*
         version: link:../shared
@@ -327,13 +327,13 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.7.4
-        version: 0.7.4(hono@4.10.2)(zod@4.1.12)
+        version: 0.7.4(hono@4.10.3)(zod@4.1.12)
       debug:
         specifier: 4.4.3
         version: 4.4.3
       hono:
-        specifier: 4.10.2
-        version: 4.10.2
+        specifier: 4.10.3
+        version: 4.10.3
       zod:
         specifier: 4.1.12
         version: 4.1.12
@@ -3201,8 +3201,8 @@ packages:
   hermes-parser@0.25.1:
     resolution: {integrity: sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==}
 
-  hono@4.10.2:
-    resolution: {integrity: sha512-p6fyzl+mQo6uhESLxbF5WlBOAJMDh36PljwlKtP5V1v09NxlqGru3ShK+4wKhSuhuYf8qxMmrivHOa/M7q0sMg==}
+  hono@4.10.3:
+    resolution: {integrity: sha512-2LOYWUbnhdxdL8MNbNg9XZig6k+cZXm5IjHn2Aviv7honhBMOHb+jxrKIeJRZJRmn+htUCKhaicxwXuUDlchRA==}
     engines: {node: '>=16.9.0'}
 
   hookified@1.12.2:
@@ -5825,13 +5825,13 @@ snapshots:
     dependencies:
       react: 19.2.0
 
-  '@hono/node-server@1.19.5(hono@4.10.2)':
+  '@hono/node-server@1.19.5(hono@4.10.3)':
     dependencies:
-      hono: 4.10.2
+      hono: 4.10.3
 
-  '@hono/zod-validator@0.7.4(hono@4.10.2)(zod@4.1.12)':
+  '@hono/zod-validator@0.7.4(hono@4.10.3)(zod@4.1.12)':
     dependencies:
-      hono: 4.10.2
+      hono: 4.10.3
       zod: 4.1.12
 
   '@humanfs/core@0.19.1': {}
@@ -8475,7 +8475,7 @@ snapshots:
     dependencies:
       hermes-estree: 0.25.1
 
-  hono@4.10.2: {}
+  hono@4.10.3: {}
 
   hookified@1.12.2: {}
 
