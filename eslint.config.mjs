@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable import/no-unresolved -- ESM... */
 import cjs from '@tyisi/config-eslint/cjs'
 import mjs from '@tyisi/config-eslint/mjs'
@@ -16,28 +17,33 @@ import globals from 'globals'
 //     }
 // }
 
-mjs[0]['settings'] = {
-    'import/resolver': {
-        node: {
-            extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx']
-        }
-    }
-}
+// mjs[0]['settings'] = {
+//     'import/resolver': {
+//         node: {
+//             extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx']
+//         }
+//     }
+// }
 
 mjs[0].languageOptions ??= {}
-mjs[0].languageOptions.ecmaVersion = 'latest'
-mjs[0].languageOptions.sourceType = 'module'
-
-tsx[0]['settings'] = {
-    'import/resolver': {
-        node: {
-            extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx']
-        }
-    }
+mjs[0].languageOptions = {
+    ...mjs[0].languageOptions,
+    ecmaVersion: 'latest',
+    sourceType: 'module'
 }
 
-tsx[0].files.push('**/.storybook/**/**.ts')
-tsx[0].files.push('**/.storybook/**/**.tsx')
+// tsx[0]['settings'] = {
+//     'import/resolver': {
+//         node: {
+//             extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx']
+//         }
+//     }
+// }
+
+tsx[0].files ??= []
+
+tsx[0].files = [...tsx[0].files, '**/.storybook/**/**.ts', '**/.storybook/**/**.tsx']
+
 tsx[0].rules['import/order'] = [
     'error',
     {
@@ -168,11 +174,17 @@ tsx[0].rules['@typescript-eslint/naming-convention'] = [
     }
 ]
 
+ts[0].rules['no-param-reassign'] = 'off'
+tsx[0].rules['no-param-reassign'] = 'off'
+
+tsx[0].settings ??= {}
 tsx[0].settings.react ??= {}
 tsx[0].settings.react = { version: '19.2.0' }
 
 const ignores = [globalIgnores(['**/dist/**', 'tmp/'])]
+
 const storybookConfig = storybook.configs['flat/recommended']
+
 const jestConfig = [
     {
         files: ['test/**', 'src/**/**.test.ts', 'src/**/**.test.tsx'],
@@ -188,6 +200,7 @@ const jestConfig = [
         }
     }
 ]
+
 const globalsConfig = [
     {
         languageOptions: {
@@ -200,6 +213,7 @@ const globalsConfig = [
         }
     }
 ]
+
 const miscConfig = [
     {
         rules: {
