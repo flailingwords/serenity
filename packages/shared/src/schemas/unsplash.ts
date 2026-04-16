@@ -48,7 +48,7 @@ export const zUnsplashUserBasic = zUnsplashEntity.extend({
         html: z.string(),
         likes: z.string(),
         photos: z.string(),
-        portfolio: z.string(),
+        portfolio: z.string().nullish(),
         self: z.string()
     }),
     location: z.string().nullish(),
