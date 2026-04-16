@@ -44,7 +44,7 @@ export const zUnsplashSocial = z.object({
 
 export const zUnsplashUser = z.object({
     id: z.string(),
-    updated_at: z.date(),
+    updated_at: z.iso.datetime(),
     username: z.string(),
     name: z.string(),
     first_name: z.string(),
@@ -89,9 +89,9 @@ export const zUnsplashLocation = z.object({
 
 export const zUnsplashPhotoData = z.object({
     id: z.string(),
-    created_at: z.date(),
-    updated_at: z.date(),
-    promoted_at: z.date(),
+    created_at: z.iso.datetime(),
+    updated_at: z.iso.datetime(),
+    promoted_at: z.iso.datetime().nullish(),
     width: z.number(),
     height: z.number(),
     color: z.string(),
