@@ -11,7 +11,7 @@
         "@tyisi/config-prettier": "5.0.0",
         "@types/debug": "4.1.13",
         "@types/node": "24.12.2",
-        "eslint": "9.39.2",
+        "eslint": "10.2.0",
         "eslint-plugin-import": "2.32.0",
         "eslint-plugin-jsx-a11y": "6.10.2",
         "eslint-plugin-n": "17.24.0",
