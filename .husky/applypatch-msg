@@ -2,6 +2,6 @@
 
 HOOK="hook-$(basename "$0")"
 
-if [ "$(yq -r '. | keys[]' justfile | grep -w "${HOOK}")" != "" ]; then
+if [ "$(grep "^${HOOK}$" justfile)" != "" ]; then
     pnpm exec just "${HOOK}"
 fi
