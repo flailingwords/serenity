@@ -22,6 +22,7 @@
 !justfile
 !postcss.config.js
 !prettier.config.*js
+!shell.nix
 !stylelint.config.*js
 !tailwind.config.ts
 !vite.config.ts
