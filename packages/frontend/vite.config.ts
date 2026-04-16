@@ -2,7 +2,6 @@
 import tailwindcss from '@tailwindcss/vite'
 import viteReact from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
     server: {
@@ -11,5 +10,10 @@ export default defineConfig({
             '/api': 'http://localhost:8787'
         }
     },
-    plugins: [tailwindcss(), tsconfigPaths(), viteReact()]
+
+    plugins: [tailwindcss(), viteReact()],
+
+    resolve: {
+        tsconfigPaths: true
+    }
 })
