@@ -1,24 +1,31 @@
 {
     "devDependencies": {
-        "@tyisi/config-eslint": "5.0.0",
-        "@tyisi/config-prettier": "2.0.0",
-        "eslint": "9.38.0",
-        "eslint-plugin-jest": "29.0.1",
-        "eslint-plugin-storybook": "9.1.13",
-        "globals": "^16.4.0",
+        "@eslint-community/eslint-plugin-eslint-comments": "4.7.1",
+        "@tyisi/config-eslint": "6.0.0",
+        "@tyisi/config-prettier": "5.0.0",
+        "eslint": "10.2.0",
+        "eslint-import-resolver-typescript": "4.4.4",
+        "eslint-plugin-import": "2.32.0",
+        "eslint-plugin-jest": "29.15.2",
+        "eslint-plugin-jsx-a11y": "6.10.2",
+        "eslint-plugin-n": "17.24.0",
+        "eslint-plugin-promise": "7.2.1",
+        "eslint-plugin-react": "7.37.5",
+        "eslint-plugin-storybook": "10.3.5",
+        "globals": "17.5.0",
         "husky": "9.1.7",
         "just-install": "2.0.2",
-        "prettier": "3.6.2",
-        "prettier-plugin-sh": "^0.18.0",
-        "prettier-plugin-tailwindcss": "^0.7.1",
-        "rust-just": "1.43.0",
-        "stylelint": "16.25.0",
-        "typescript": "~5.9.3",
+        "prettier": "3.8.3",
+        "prettier-plugin-sh": "0.18.1",
+        "prettier-plugin-tailwindcss": "0.7.2",
+        "rust-just": "1.49.0",
+        "stylelint": "17.8.0",
+        "typescript": "5.9.3",
         "wireit": "0.14.12"
     },
     "name": "serenity",
     "license": "GPLv3",
-    "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
+    "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
     "private": true,
     "resolutions": {
         "string-width": "4.2.2",
@@ -27,13 +34,10 @@
     },
     "scripts": {
         "build": "wireit",
-        "build:storybook": "wireit",
         "commit": "npx git-cz@latest",
         "create:component": "generate-react c",
         "create:widget": "generate-react c --type=widget",
         "dev": "wireit",
-        "full-dev": "wireit",
-        "hook:pre-push": "wireit",
         "lint": "wireit",
         "preinstall": "npx only-allow pnpm",
         "prepare": "husky",
@@ -54,7 +58,11 @@
             ]
         },
         "lint": {
-            "command": "just lint"
+            "dependencies": [
+                "./packages/backend:lint",
+                "./packages/frontend:lint",
+                "./packages/shared:lint"
+            ]
         },
         "push": {
             "command": "just push",
@@ -76,6 +84,12 @@
         },
         "release:version": {
             "command": "just release version"
+        },
+        "dev": {
+            "dependencies": [
+                "./packages/backend:dev",
+                "./packages/frontend:dev"
+            ]
         },
         "start": {
             "command": "just start",
