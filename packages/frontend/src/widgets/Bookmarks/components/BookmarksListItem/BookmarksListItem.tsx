@@ -24,8 +24,6 @@ export const BookmarksListItem: FC<BookmarksListItemProps> = ({ bookmark: { id, 
                         type='checkbox'
                         onChange={(event) => {
                             setEditBookmark(event.target.checked)
-
-                            return true
                         }}
                         checked={editBookmark}
                     />

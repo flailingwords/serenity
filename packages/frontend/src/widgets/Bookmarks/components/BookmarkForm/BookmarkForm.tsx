@@ -1,4 +1,4 @@
-import { type Dispatch, type FC, type FormEvent, type KeyboardEvent, type SetStateAction, useEffect, useState } from 'react'
+import { type Dispatch, type FC, type ChangeEvent, type KeyboardEvent, type SetStateAction, useEffect, useState } from 'react'
 
 import type { BookmarkFormProps } from './BookmarkForm.types'
 
@@ -22,7 +22,7 @@ export const BookmarkForm: FC<BookmarkFormProps> = ({ bookmark, inlineSubmitButt
         setUrl(bookmark.url ?? '')
     }, [bookmark])
 
-    const changeHandler = (dispatcher: Dispatch<SetStateAction<string>>, event: FormEvent<HTMLInputElement>): void => {
+    const changeHandler = (dispatcher: Dispatch<SetStateAction<string>>, event: ChangeEvent<HTMLInputElement>): void => {
         if (typeof event.currentTarget.value === 'string') dispatcher(event.currentTarget.value)
     }
 
@@ -71,7 +71,7 @@ export const BookmarkForm: FC<BookmarkFormProps> = ({ bookmark, inlineSubmitButt
                     className='h-8 w-full rounded bg-white px-1 text-black'
                     name='url'
                     value={_url}
-                    onChange={(event: FormEvent<HTMLInputElement>) => {
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
                         changeHandler(setUrl, event)
                     }}
                     placeholder='url'
@@ -87,7 +87,7 @@ export const BookmarkForm: FC<BookmarkFormProps> = ({ bookmark, inlineSubmitButt
                             className='h-8 w-full rounded bg-white px-1 text-black'
                             name='title'
                             value={_title}
-                            onChange={(event: FormEvent<HTMLInputElement>) => {
+                            onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                 changeHandler(setTitle, event)
                             }}
                             placeholder='title'
@@ -115,7 +115,7 @@ export const BookmarkForm: FC<BookmarkFormProps> = ({ bookmark, inlineSubmitButt
                                 className='h-8 w-full rounded bg-white text-black'
                                 name='title'
                                 value={_title}
-                                onChange={(event: FormEvent<HTMLInputElement>) => {
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                     changeHandler(setTitle, event)
                                 }}
                                 placeholder='title'

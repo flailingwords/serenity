@@ -43,8 +43,6 @@ export const SettingToggle: FC<SettingToggleProps> = ({
                 className='peer hidden'
                 onChange={(event) => {
                     onChange(event.target.checked)
-
-                    return true
                 }}
                 checked={localChecked}
             />

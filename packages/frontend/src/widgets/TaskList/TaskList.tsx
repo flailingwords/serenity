@@ -1,4 +1,4 @@
-import { type FC, type FormEvent, type KeyboardEvent, useState } from 'react'
+import { type FC, type ChangeEvent, type KeyboardEvent, useState } from 'react'
 
 import type { TaskListProps } from './TaskList.types'
 
@@ -105,7 +105,7 @@ export const TaskList: FC<TaskListProps> = () => {
                             className='h-8 w-11/12 rounded bg-white px-2 text-black'
                             name='newTaskText'
                             value={newTaskText}
-                            onChange={(event: FormEvent<HTMLInputElement>) => {
+                            onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                 newTaskTextHandler(event.currentTarget.value)
                             }}
                             onKeyUp={(event: KeyboardEvent<HTMLInputElement>) => {
@@ -114,7 +114,12 @@ export const TaskList: FC<TaskListProps> = () => {
                         />
                     </div>
                     <div className='basis-1/6'>
-                        <button className='btn-light h-8 justify-self-end rounded px-3 py-1' onClick={() => addTaskHandler()}>
+                        <button
+                            className='btn-light h-8 justify-self-end rounded px-3 py-1'
+                            onClick={() => {
+                                addTaskHandler()
+                            }}
+                        >
                             Add
                         </button>
                     </div>

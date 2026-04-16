@@ -12,7 +12,7 @@ export class Task implements TaskData {
     text: TaskData['text']
 
     constructor(text?: TaskData['text'], id?: TaskData['id']) {
-        if (id == null || typeof id === 'number') id = crypto.randomUUID()
+        id ??= crypto.randomUUID()
 
         this.id = id
         this.text = text ?? ''

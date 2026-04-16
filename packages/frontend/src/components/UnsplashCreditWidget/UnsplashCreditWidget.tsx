@@ -10,11 +10,11 @@ export const UnsplashCreditWidget: FC<UnsplashCreditWidgetProps> = () => {
 
     return (
         <BottomTextLabel>
-            <a href={photo.links.html + '?utm_source=Serenity&utm_medium=referral'} className='text-blue-500'>
+            <a href={`${photo.links.html}?utm_source=Serenity&utm_medium=referral`} className='text-blue-500'>
                 Photo
             </a>{' '}
             by{' '}
-            <a href={photo.user.links.html + '?utm_source=Serenity&utm_medium=referral'} className='text-blue-500'>
+            <a href={`${photo.user.links.html}?utm_source=Serenity&utm_medium=referral`} className='text-blue-500'>
                 {photo.user.first_name} {photo.user.last_name}
             </a>{' '}
             on{' '}

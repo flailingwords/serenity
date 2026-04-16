@@ -61,7 +61,7 @@ export const WeatherCurrentWeather: FC<WeatherCurrentWeatherProps> = () => {
             <div>&nbsp;/&nbsp;</div>
             <div className='text-nowrap'>{weather.current.condition.text}</div>
             <div>
-                <img alt={weather.current.condition.text} src={'https:' + weather.current.condition.icon} width={24} height={24} />
+                <img alt={weather.current.condition.text} src={`https:${weather.current.condition.icon}`} width={24} height={24} />
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import { type FC, type FocusEvent, type FormEvent, type KeyboardEvent, useEffect, useState } from 'react'
+import { type FC, type FocusEvent, type ChangeEvent, type KeyboardEvent, useEffect, useState } from 'react'
 
 import type { TasksItemProps } from './TaskItem.types'
 import type { Task } from '../../classes/Task.class'
@@ -76,7 +76,7 @@ export const TaskItem: FC<TasksItemProps> = ({ task, onRemove, onUpdate }) => {
                         className='h-8 w-11/12 rounded bg-white px-2 text-black'
                         name='text'
                         value={text}
-                        onChange={(event: FormEvent<HTMLInputElement>) => {
+                        onChange={(event: ChangeEvent<HTMLInputElement>) => {
                             handleTextChange(event.currentTarget.value)
                         }}
                         onBlur={(event: FocusEvent<HTMLInputElement>) => {
