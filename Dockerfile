@@ -4,10 +4,15 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
 FROM base AS build
+
 COPY . /build
+
 WORKDIR /build
+
 RUN apk --no-cache add wget bash
+
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+
 RUN pnpm --filter "serenity-shared" build
 RUN pnpm --filter "...^serenity-shared" build
 RUN pnpm --filter "serenity-backend" deploy --prod /app
@@ -20,7 +25,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-CMD [ "pnpm", "start" ]
+CMD [ "npm", "start" ]
 
 EXPOSE 8787
 
