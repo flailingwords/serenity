@@ -2,7 +2,7 @@
     "dependencies": {
         "@hono/zod-validator": "0.7.6",
         "debug": "4.4.3",
-        "hono": "4.12.14",
+        "hono": "4.12.18",
         "zod": "4.3.6"
     },
     "devDependencies": {
